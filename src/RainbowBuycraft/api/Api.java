@@ -1,9 +1,8 @@
-package net.buycraft.api;
+package RainbowBuycraft.api;
 
-import net.buycraft.Plugin;
-import net.buycraft.tasks.ReportTask;
+import RainbowBuycraft.MyPlugin;
+import RainbowBuycraft.tasks.ReportTask;
 
-import org.bukkit.Bukkit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,13 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Api {
-    private Plugin plugin;
+    private MyPlugin plugin;
 
     private String apiUrl;
     private String apiKey;
 
     public Api() {
-        this.plugin = Plugin.getInstance();
+        this.plugin = MyPlugin.getInstance();
         this.apiKey = plugin.getSettings().getString("secret");
 
         if (plugin.getSettings().getBoolean("https")) {
@@ -38,9 +37,9 @@ public class Api {
 
         apiCallParams.put("action", "info");
         
-        apiCallParams.put("serverPort", String.valueOf(Bukkit.getPort()));
-        apiCallParams.put("onlineMode", String.valueOf(Bukkit.getOnlineMode()));
-        apiCallParams.put("playersMax", String.valueOf(Bukkit.getMaxPlayers()));
+        apiCallParams.put("serverPort", String.valueOf(plugin.getServer().getServerPort()));
+        apiCallParams.put("onlineMode", String.valueOf(plugin.getServer().getOnlineMode()));
+        apiCallParams.put("playersMax", String.valueOf(9000)); // No current API support
         apiCallParams.put("version", plugin.getVersion());
 
         return call(apiCallParams);
@@ -122,7 +121,7 @@ public class Api {
         }
 
         apiCallParams.put("secret", apiKey);
-        apiCallParams.put("playersOnline", String.valueOf(Bukkit.getOnlinePlayers().length));
+        apiCallParams.put("playersOnline", String.valueOf(plugin.getServer().getPlayers().size()));
   
         String url = apiUrl + generateUrlQueryString(apiCallParams);
 
@@ -147,9 +146,9 @@ public class Api {
     public static String HttpRequest(String url) {
         try {
         	
-        	if(Plugin.getInstance().getSettings().getBoolean("debug")) {
-        		Plugin.getInstance().getLogger().info("---------------------------------------------------");
-        		Plugin.getInstance().getLogger().info("Request URL: " + url);
+        	if(MyPlugin.getInstance().getSettings().getBoolean("debug")) {
+        		MyPlugin.getInstance().getLogger().info("---------------------------------------------------");
+        		MyPlugin.getInstance().getLogger().info("Request URL: " + url);
         	}
         	
             String content = "";
@@ -176,26 +175,26 @@ public class Api {
 
             in.close();
             
-            if(Plugin.getInstance().getSettings().getBoolean("debug")) {
-            	Plugin.getInstance().getLogger().info("JSON Response: " + content);
-            	Plugin.getInstance().getLogger().info("---------------------------------------------------");
+            if(MyPlugin.getInstance().getSettings().getBoolean("debug")) {
+            	MyPlugin.getInstance().getLogger().info("JSON Response: " + content);
+            	MyPlugin.getInstance().getLogger().info("---------------------------------------------------");
             }
             
             return content;
         } catch (ConnectException e) {
-            Plugin.getInstance().getLogger().severe("HTTP request failed due to connection error.");
+            MyPlugin.getInstance().getLogger().severe("HTTP request failed due to connection error.");
             ReportTask.setLastException(e);
         } catch (SocketTimeoutException e) {
-            Plugin.getInstance().getLogger().severe("HTTP request failed due to timeout error.");
+            MyPlugin.getInstance().getLogger().severe("HTTP request failed due to timeout error.");
             ReportTask.setLastException(e);
         } catch (FileNotFoundException e) {
-            Plugin.getInstance().getLogger().severe("HTTP request failed due to file not found.");
+            MyPlugin.getInstance().getLogger().severe("HTTP request failed due to file not found.");
             ReportTask.setLastException(e);
         } catch (UnknownHostException e) {
-            Plugin.getInstance().getLogger().severe("HTTP request failed due to unknown host.");
+            MyPlugin.getInstance().getLogger().severe("HTTP request failed due to unknown host.");
             ReportTask.setLastException(e);
         } catch (IOException e) {
-        	 Plugin.getInstance().getLogger().severe(e.getMessage());
+        	 MyPlugin.getInstance().getLogger().severe(e.getMessage());
              ReportTask.setLastException(e);
         } catch (Exception e) {
             e.printStackTrace();

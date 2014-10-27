@@ -1,9 +1,9 @@
-package net.buycraft.util;
+package RainbowBuycraft.util;
 
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
+import PluginReference.MC_ItemStack;
+import PluginReference.MC_Player;
+
+import java.util.List;
 
 
 public class PackageCommand implements Comparable<Object> {
@@ -33,7 +33,7 @@ public class PackageCommand implements Comparable<Object> {
         return requiredInventorySlots > 0;
     }
 
-    public int calculateRequiredInventorySlots(Player player) {
+    public int calculateRequiredInventorySlots(MC_Player player) {
         if (requiredInventorySlots == 0) {
             return 0;
         }
@@ -42,12 +42,12 @@ public class PackageCommand implements Comparable<Object> {
             return -1;
         }
 
-        PlayerInventory inv = player.getInventory();
-        int size = inv.getSize();
+        List<MC_ItemStack> inv = player.getInventory();
+        int size = inv.size();
         int emptyCount = 0;
         for (int i = 0; i < size; ++i) {
-            ItemStack item = inv.getItem(i);
-            if (item == null || item.getType() == Material.AIR) {
+            MC_ItemStack item = inv.get(i);
+            if (item == null || item.getId() == 0) {
                 if (++emptyCount == requiredInventorySlots) {
                     return 0;
                 }

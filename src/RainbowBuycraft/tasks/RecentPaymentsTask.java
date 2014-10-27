@@ -1,25 +1,25 @@
-package net.buycraft.tasks;
+package RainbowBuycraft.tasks;
 
-import net.buycraft.Plugin;
-import net.buycraft.api.ApiTask;
-import net.buycraft.util.Chat;
+import PluginReference.ChatColor;
+import PluginReference.MC_Player;
+import RainbowBuycraft.MyPlugin;
+import RainbowBuycraft.api.ApiTask;
+import RainbowBuycraft.util.Chat;
 
-import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RecentPaymentsTask extends ApiTask {
     
-    private CommandSender receiver;
+    private MC_Player receiver;
     private String playerLookup;
     
-    public static void call(CommandSender receiver, String player) {
-        Plugin.getInstance().addTask(new RecentPaymentsTask(receiver, player));
+    public static void call(MC_Player receiver, String player) {
+        MyPlugin.getInstance().addTask(new RecentPaymentsTask(receiver, player));
     }
 
-    private RecentPaymentsTask(CommandSender receiver, String playerLookup) {
+    private RecentPaymentsTask(MC_Player receiver, String playerLookup) {
         this.receiver = receiver;
         this.playerLookup = playerLookup;
     }

@@ -1,11 +1,11 @@
-package net.buycraft.tasks;
+package RainbowBuycraft.tasks;
 
 import java.util.ArrayList;
 
-import net.buycraft.Plugin;
-import net.buycraft.api.ApiTask;
+import PluginReference.MC_Player;
+import RainbowBuycraft.MyPlugin;
+import RainbowBuycraft.api.ApiTask;
 
-import org.bukkit.entity.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -18,16 +18,16 @@ public class CommandFetchTask extends ApiTask {
         return lastExecution;
     }
 
-    public static void call(boolean offlineCommands, Player ...players) {
-        Plugin.getInstance().addTask(new CommandFetchTask(offlineCommands, players));
+    public static void call(boolean offlineCommands, MC_Player... players) {
+        MyPlugin.getInstance().addTask(new CommandFetchTask(offlineCommands, players));
     }
 
-    private final Plugin plugin;
+    private final MyPlugin plugin;
     private final boolean offlineCommands;
-    private final Player[] players;
+    private final MC_Player[] players;
 
-    private CommandFetchTask(boolean offlineCommands, Player[] players) {
-        this.plugin = Plugin.getInstance();
+    private CommandFetchTask(boolean offlineCommands, MC_Player[] players) {
+        this.plugin = MyPlugin.getInstance();
         this.offlineCommands = offlineCommands;
         this.players = players;
     }
@@ -43,7 +43,7 @@ public class CommandFetchTask extends ApiTask {
             String[] playerNames;
             if (players.length > 0){
                 ArrayList<String> tmpPlayerNames = new ArrayList<String>(players.length);
-                for (Player player : players) {
+                for (MC_Player player : players) {
                     tmpPlayerNames.add(player.getName());
                 }
                 playerNames = tmpPlayerNames.toArray(new String[tmpPlayerNames.size()]);
@@ -71,22 +71,22 @@ public class CommandFetchTask extends ApiTask {
                 int delay = row.getInt("delay");
                 int requiredInventorySlots = row.getInt("requireInventorySlot");
 
-                Player player = requireOnline ? getPlayer(players, username) : null;
+                MC_Player player = requireOnline ? getPlayer(players, username) : null;
 
                 if (requireOnline == false || player != null) {
                     String c = command;
                     String u = username;
 
-                    Plugin.getInstance().getCommandExecutor().queueCommand(commandId, c, u, delay, requiredInventorySlots);
+                    MyPlugin.getInstance().getCommandExecutor().queueCommand(commandId, c, u, delay, requiredInventorySlots);
                 }
             }
 
             // If the plugin is disabled here our commands won't get executed so we return
-            if (!Plugin.getInstance().isEnabled()) {
+            if (!MyPlugin.getInstance().isEnabled()) {
                 return;
             }
 
-            Plugin.getInstance().getCommandExecutor().scheduleExecutor();
+            MyPlugin.getInstance().getCommandExecutor().scheduleExecutor();
 
             plugin.getLogger().info("Package checker successfully executed.");
         } catch (Exception e) {
@@ -95,8 +95,8 @@ public class CommandFetchTask extends ApiTask {
         }
     }
 
-    private Player getPlayer(Player[] players, String name) {
-        for (Player player : players) {
+    private MC_Player getPlayer(MC_Player[] players, String name) {
+        for (MC_Player player : players) {
             if (player.getName().equalsIgnoreCase(name))
                 return player;
         }

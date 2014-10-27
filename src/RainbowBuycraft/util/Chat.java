@@ -1,6 +1,6 @@
-package net.buycraft.util;
+package RainbowBuycraft.util;
 
-import org.bukkit.ChatColor;
+import PluginReference.ChatColor;
 
 public class Chat {
     private static final String header = ChatColor.WHITE + "|----------------------" + ChatColor.LIGHT_PURPLE + " BUYCRAFT " + ChatColor.WHITE + "---------------------";

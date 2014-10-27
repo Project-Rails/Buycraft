@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>Buycraft-Plugin</groupId>
-  <artifactId>Buycraft</artifactId>
-  <version>6.7</version>
+  <artifactId>RainbowBuycraft</artifactId>
+  <version>1.0</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <finalName>${project.artifactId}_${project.version}</finalName>
@@ -10,24 +10,23 @@
       <resource>
         <directory></directory>
         <includes>
-          <include>plugin.yml</include>
           <include>README.md</include>
         </includes>
       </resource>
     </resources>
   </build>
   <repositories>
-    <!-- BukkitRepo -->
+    <!-- LocalRepo -->
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
+      <id>libraries</id>
+      <url>file://${project.basedir}/lib</url>
     </repository>
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>LATEST</version>
+        <groupId>org.rbow</groupId>
+        <artifactId>PluginReference</artifactId>
+        <version>45.2</version>
     </dependency>
   </dependencies>
   <organization>

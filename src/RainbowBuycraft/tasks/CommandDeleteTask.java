@@ -1,21 +1,20 @@
-package net.buycraft.tasks;
+package RainbowBuycraft.tasks;
 
 import java.util.HashSet;
+import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 
-import org.bukkit.Bukkit;
-import org.bukkit.scheduler.BukkitTask;
+import RainbowBuycraft.MyPlugin;
 import org.json.JSONArray;
 
-import net.buycraft.Plugin;
-import net.buycraft.api.ApiTask;
+import RainbowBuycraft.api.ApiTask;
 
 public class CommandDeleteTask extends ApiTask {
 
     private final AtomicBoolean scheduled = new AtomicBoolean(false);
     private final HashSet<Integer> commandsToDelete = new HashSet<Integer>();
-    private BukkitTask currentTask;
+    private TimerTask currentTask;
 
     public synchronized void deleteCommand(int cid) {
         commandsToDelete.add(cid);
@@ -37,7 +36,7 @@ public class CommandDeleteTask extends ApiTask {
         }
 
         if (!commandsToDelete.isEmpty())
-            Plugin.getInstance().addTask(this);
+            MyPlugin.getInstance().addTask(this);
     }
 
     public void run() {
@@ -56,7 +55,7 @@ public class CommandDeleteTask extends ApiTask {
         }
         catch (Exception e)
         {
-            Plugin.getInstance().getLogger().log(Level.SEVERE, "Error occured when deleting commands from the API", e);
+            MyPlugin.getInstance().getLogger().log(Level.SEVERE, "Error occured when deleting commands from the API", e);
             ReportTask.setLastException(e);
         }
     }
@@ -64,12 +63,14 @@ public class CommandDeleteTask extends ApiTask {
     private void schedule() {
         // Delay the task for 10 seconds to allow for more deletions to occur at once
         if (scheduled.compareAndSet(false, true)) {
-            currentTask = Bukkit.getScheduler().runTaskLater(Plugin.getInstance(), new Runnable() {
+            currentTask = new TimerTask() {
+                @Override
                 public void run() {
                     currentTask = null;
-                    Plugin.getInstance().addTask(CommandDeleteTask.this);
+                    MyPlugin.getInstance().addTask(CommandDeleteTask.this);
                 }
-            }, 600L);
+            };
+            getPlugin().pendingPlayerCheckerTaskExecutor.schedule(currentTask, 600L);
         }
     }
     private synchronized void removeCommands(Integer[] commandIds) {
