@@ -77,7 +77,7 @@ public class MyPlugin extends PluginBase {
 
         moveFileFromJar("README.md", getFolderPath() + "/README.txt", true);
 
-        version = "1.0";
+        version = "1.1";
 
         settings = new Settings();
         language = new Language();
