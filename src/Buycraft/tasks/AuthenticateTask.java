@@ -1,7 +1,7 @@
-package RainbowBuycraft.tasks;
+package Buycraft.tasks;
 
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.api.ApiTask;
+import Buycraft.MyPlugin;
+import Buycraft.api.ApiTask;
 
 import org.json.JSONObject;
 
