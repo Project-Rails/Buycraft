@@ -1,7 +1,7 @@
-package RainbowBuycraft.api;
+package Buycraft.api;
 
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.util.Language;
+import Buycraft.MyPlugin;
+import Buycraft.util.Language;
 
 import java.util.TimerTask;
 import java.util.logging.Logger;
