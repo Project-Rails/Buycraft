@@ -1,7 +1,7 @@
-package RainbowBuycraft.api;
+package Buycraft.api;
 
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.tasks.ReportTask;
+import Buycraft.MyPlugin;
+import Buycraft.tasks.ReportTask;
 
 import org.json.JSONArray;
 import org.json.JSONException;
