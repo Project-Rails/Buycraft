@@ -21,6 +21,7 @@ public class BuycraftCommand implements MC_Command {
 
     @Override
     public List<String> getAliases() {
+        List Arrays;
         return Arrays.asList("buycraft");
     }
 
