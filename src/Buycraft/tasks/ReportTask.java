@@ -66,7 +66,7 @@ public class ReportTask extends ApiTask {
             String os = System.getProperty("os.name") + " | " + System.getProperty("os.version") + " | " + System.getProperty("os.arch");
             String javaVersion = System.getProperty("java.version") + " | " + System.getProperty("java.vendor");
             String serverVersion = "" + getPlugin().getServer().getRainbowVersion();
-            String serverName = "Rainbow Server";
+            String serverName = "Project Rails";
             String serverIP = InetAddress.getLocalHost().getHostAddress();
             int serverPort = getPlugin().getServer().getServerPort();
             String buycraftVersion = MyPlugin.getInstance().getVersion();
