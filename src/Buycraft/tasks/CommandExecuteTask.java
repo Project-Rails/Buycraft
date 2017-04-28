@@ -1,4 +1,4 @@
-package RainbowBuycraft.tasks;
+package Buycraft.tasks;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.api.ApiTask;
-import RainbowBuycraft.util.Chat;
-import RainbowBuycraft.util.PackageCommand;
+import Buycraft.MyPlugin;
+import Buycraft.api.ApiTask;
+import Buycraft.util.Chat;
+import Buycraft.util.PackageCommand;
 
 public class CommandExecuteTask extends ApiTask {
     private static final Pattern REPLACE_NAME = Pattern.compile("[{\\(<\\[](name|player|username)[}\\)>\\]]", Pattern.CASE_INSENSITIVE);
