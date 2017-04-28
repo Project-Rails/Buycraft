@@ -1,14 +1,14 @@
-package RainbowBuycraft.util;
+package Buycraft.util;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Properties;
 
-import RainbowBuycraft.tasks.ReportTask;
+import Buycraft.tasks.ReportTask;
 
 public class Language {
-    private final String LOCATION = "plugins_mod/RainbowBuycraft/language.conf";
+    private final String LOCATION = "plugins_mod/Buycraft/language.conf";
     private File file;
 
     private HashMap<String, String> defaultProperties;
