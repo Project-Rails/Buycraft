@@ -1,17 +1,17 @@
-package RainbowBuycraft;
+package Buycraft;
 
 import PluginReference.*;
-import RainbowBuycraft.api.Api;
-import RainbowBuycraft.api.ApiTask;
-import RainbowBuycraft.commands.BuycraftCommand;
-import RainbowBuycraft.tasks.AuthenticateTask;
-import RainbowBuycraft.tasks.CommandDeleteTask;
-import RainbowBuycraft.tasks.CommandExecuteTask;
-import RainbowBuycraft.tasks.PendingPlayerCheckerTask;
-import RainbowBuycraft.tasks.ReportTask;
-import RainbowBuycraft.util.Chat;
-import RainbowBuycraft.util.Language;
-import RainbowBuycraft.util.Settings;
+import Buycraft.api.Api;
+import Buycraft.api.ApiTask;
+import Buycraft.commands.BuycraftCommand;
+import Buycraft.tasks.AuthenticateTask;
+import Buycraft.tasks.CommandDeleteTask;
+import Buycraft.tasks.CommandExecuteTask;
+import Buycraft.tasks.PendingPlayerCheckerTask;
+import Buycraft.tasks.ReportTask;
+import Buycraft.util.Chat;
+import Buycraft.util.Language;
+import Buycraft.util.Settings;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -30,7 +30,7 @@ public class MyPlugin extends PluginBase {
 
     private static MyPlugin instance;
 
-    private String version;
+    public String version = "17w17a";
 
     private Settings settings;
     private Language language;
@@ -65,13 +65,13 @@ public class MyPlugin extends PluginBase {
     }
 
     public void onStartup(MC_Server argServer) {
-        logger.info("============ RainbowBuycraft ============");
+        logger.info("============ Buycraft ============");
         logger.info("Buycraft is strating up...");
         server = argServer;
 
         // thread pool model
         executors = Executors.newFixedThreadPool(5);
-        folderPath = "plugins_mod" + File.separator + "RainbowBuycraft" + File.separator;
+        folderPath = "plugins_mod" + File.separator + "Buycraft" + File.separator;
         
         checkDirectory();
 
@@ -101,7 +101,7 @@ public class MyPlugin extends PluginBase {
     public PluginInfo getPluginInfo()
     {
         PluginInfo info = new PluginInfo();
-        info.description = "Buycraft Port By CoolV1994";
+        info.description = "Buycraft for Project Rails (" + version + ")";
         info.eventSortOrder = 1000.0f; // call me much later on than default.
         return info;
     }
