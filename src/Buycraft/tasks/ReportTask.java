@@ -90,7 +90,7 @@ public class ReportTask extends ApiTask {
                     "Server Version: ", serverVersion, '\n',
                     "Server Name: ", serverName, "\n",
                     "Server IP: ", serverIP, ":", serverPort, "\n",
-                    "RainbowBuycraft Version: ", buycraftVersion, '\n',
+                    "Buycraft Version: ", buycraftVersion, '\n',
                     '\n',
                     "#### Buycraft Info ####", '\n',
                     "Store URL: " , MyPlugin.getInstance().getServerStore(), '\n',
