@@ -1,10 +1,10 @@
-package RainbowBuycraft.tasks;
+package Buycraft.tasks;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.api.ApiTask;
-import RainbowBuycraft.util.Chat;
+import Buycraft.MyPlugin;
+import Buycraft.api.ApiTask;
+import Buycraft.util.Chat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
