@@ -1,15 +1,15 @@
-package RainbowBuycraft.tasks;
+package Buycraft.tasks;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import PluginReference.MC_Player;
-import RainbowBuycraft.MyPlugin;
+import Buycraft.MyPlugin;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import RainbowBuycraft.api.ApiTask;
+import Buycraft.api.ApiTask;
 
 /**
  * Fetches an array of players which are waiting for commands to be run.
