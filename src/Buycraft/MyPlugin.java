@@ -30,7 +30,7 @@ public class MyPlugin extends PluginBase {
 
     private static MyPlugin instance;
 
-    public String version = "17w17a";
+    public static String version = "17w17a";
 
     private Settings settings;
     private Language language;
