@@ -1,4 +1,4 @@
-package RainbowBuycraft.util;
+package Buycraft.util;
 
 import PluginReference.MC_ItemStack;
 import PluginReference.MC_Player;
