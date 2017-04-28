@@ -1,10 +1,10 @@
-package RainbowBuycraft.tasks;
+package Buycraft.tasks;
 
 import java.util.ArrayList;
 
 import PluginReference.MC_Player;
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.api.ApiTask;
+import Buycraft.MyPlugin;
+import Buycraft.api.ApiTask;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
