@@ -117,10 +117,10 @@ public class BuycraftCommand implements MC_Command {
                 player.sendMessage(Chat.seperator());
 
                 if (player.hasPermission("buycraft.admin")) {
-                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buycraft forcecheck:" + ChatColor.GREEN + " Check for pending commands");
-                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buycraft secret <key>:" + ChatColor.GREEN + " Set the Secret key");
-                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buycraft payments <ign>:" + ChatColor.GREEN + " Get recent payments of a user");
-                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buycraft report:" + ChatColor.GREEN + " Generate an error report");
+                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buy forcecheck:" + ChatColor.GREEN + " Check for pending commands");
+                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buy secret <key>:" + ChatColor.GREEN + " Set the Secret key");
+                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buy payments <ign>:" + ChatColor.GREEN + " Get recent payments of a user");
+                    player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "/buy report:" + ChatColor.GREEN + " Generate an error report");
                 }
 
                 player.sendMessage(Chat.seperator());
