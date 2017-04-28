@@ -1,13 +1,13 @@
-package RainbowBuycraft.commands;
+package Buycraft.commands;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Command;
 import PluginReference.MC_Player;
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.tasks.AuthenticateTask;
-import RainbowBuycraft.tasks.RecentPaymentsTask;
-import RainbowBuycraft.tasks.ReportTask;
-import RainbowBuycraft.util.Chat;
+import Buycraft.MyPlugin;
+import Buycraft.tasks.AuthenticateTask;
+import Buycraft.tasks.RecentPaymentsTask;
+import Buycraft.tasks.ReportTask;
+import Buycraft.util.Chat;
 
 import java.util.List;
 
@@ -16,17 +16,17 @@ public class BuycraftCommand implements MC_Command {
 
     @Override
     public String getCommandName() {
-        return "buycraft";
+        return "buy";
     }
 
     @Override
     public List<String> getAliases() {
-        return null;
+        return Arrays.asList("buycraft");
     }
 
     @Override
     public String getHelpLine(MC_Player player) {
-        return ChatColor.AQUA + "/buycraft" + ChatColor.WHITE + " <reload/forcecheck/secret/payments <ign>>";
+        return ChatColor.AQUA + "/buy" + ChatColor.WHITE + " --- <reload|forcecheck|secret|payments>";
     }
 
     @Override
@@ -64,7 +64,7 @@ public class BuycraftCommand implements MC_Command {
 
                             player.sendMessage(Chat.header());
                             player.sendMessage(Chat.seperator());
-                            player.sendMessage(Chat.seperator() + ChatColor.GREEN + "Server authenticated. Type /buycraft for confirmation.");
+                            player.sendMessage(Chat.seperator() + ChatColor.GREEN + "Server authenticated. Type /buy for confirmation.");
                             player.sendMessage(Chat.seperator());
                             player.sendMessage(Chat.footer());
 
