@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Properties;
 
-import RainbowBuycraft.tasks.ReportTask;
+import Buycraft.tasks.ReportTask;
 
 public class Settings {
     private final String LOCATION = "plugins_mod/Buycraft/settings.conf";
