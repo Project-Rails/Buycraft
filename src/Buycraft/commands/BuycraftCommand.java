@@ -126,8 +126,8 @@ public class BuycraftCommand implements MC_Command {
                 player.sendMessage(Chat.seperator());
                 player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Server ID: " + ChatColor.GREEN + String.valueOf(plugin.getServerID()));
                 player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Server URL: " + ChatColor.GREEN + String.valueOf(plugin.getServerStore()));
-                player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Version: " + ChatColor.GREEN + String.valueOf(plugin.getVersion()) + ChatColor.GOLD + " CoolV1994's Port.");
-                player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Website: " + ChatColor.GREEN + "http://www.project-rainbow.org/site/plugin-releases/rainbowbuycraft/");
+                player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Version: " + ChatColor.GREEN + String.valueOf(plugin.getVersion()) + ChatColor.GOLD + " Project Rails");
+                player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Website: " + ChatColor.GREEN + "https://github.com/Project-Rails/Buycraft");
                 player.sendMessage(Chat.footer());
             }
 
