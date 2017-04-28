@@ -1,4 +1,4 @@
-package RainbowBuycraft.util;
+package Buycraft.util;
 
 import java.io.*;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Properties;
 import RainbowBuycraft.tasks.ReportTask;
 
 public class Settings {
-    private final String LOCATION = "plugins_mod/RainbowBuycraft/settings.conf";
+    private final String LOCATION = "plugins_mod/Buycraft/settings.conf";
     private File file;
 
     private HashMap<String, String> defaultProperties;
