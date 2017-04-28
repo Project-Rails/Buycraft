@@ -1,4 +1,4 @@
-package RainbowBuycraft.tasks;
+package Buycraft.tasks;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,9 +14,9 @@ import java.util.Scanner;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
-import RainbowBuycraft.MyPlugin;
-import RainbowBuycraft.api.ApiTask;
-import RainbowBuycraft.util.Chat;
+import Buycraft.MyPlugin;
+import Buycraft.api.ApiTask;
+import Buycraft.util.Chat;
 
 public class ReportTask extends ApiTask {
 
