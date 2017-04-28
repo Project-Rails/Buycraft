@@ -21,8 +21,7 @@ public class BuycraftCommand implements MC_Command {
 
     @Override
     public List<String> getAliases() {
-        List Arrays;
-        return Arrays.asList("buycraft");
+        return null;
     }
 
     @Override
@@ -127,7 +126,7 @@ public class BuycraftCommand implements MC_Command {
                 player.sendMessage(Chat.seperator());
                 player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Server ID: " + ChatColor.GREEN + String.valueOf(plugin.getServerID()));
                 player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Server URL: " + ChatColor.GREEN + String.valueOf(plugin.getServerStore()));
-                player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Version: " + ChatColor.GREEN + String.valueOf(plugin.getVersion()) + ChatColor.GOLD + " Project Rails");
+                player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Version: " + ChatColor.GREEN + String.valueOf(MyPlugin.version));
                 player.sendMessage(Chat.seperator() + ChatColor.LIGHT_PURPLE + "Website: " + ChatColor.GREEN + "https://github.com/Project-Rails/Buycraft");
                 player.sendMessage(Chat.footer());
             }
